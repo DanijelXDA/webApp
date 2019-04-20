@@ -20,23 +20,19 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <a href="https://danijelxda.github.io/webApp/"><img class="d-block mx-auto mb-4" src="images/favicon.ico" alt="" width="72" height="72"></a>
-            <h5 class="card-title text-center">Sign In</h5>
-            <form class="form-signin">
+            <h5 class="card-title text-center">Пријава на систем</h5>
+            <form class="form-signin" name="loginform" onSubmit="return validateForm();" action="webApp/index.html" method="post">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputEmail">Email address</label>
+                <input type="text" id="usr" name="usr" class="form-control" placeholder="Email address" required autofocus>
+                <label for="usr">Корисничко име</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
+                <input type="password" id="inputPassword" name="pword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Лозинка</label>
               </div>
-
-              <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
-              </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <br/>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Пријава</button>
               <hr class="my-4">
               <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">&copy; 2019 Данијел Јовановић</p>
@@ -59,5 +55,22 @@
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
+      <script>
+    	function validateForm() {
+	        var un = document.loginform.usr.value;
+	        var pw = document.loginform.pword.value;
+	        var username = "korisnik"; 
+	        var password = "korisnik";
+	        if ((un == username) && (pw == password)) {
+	            return true;
+	        }
+	        else {
+	            alert ("Пријава неуспешна!");
+	            document.loginform.usr.value = "";
+	        	document.loginform.pword.value = "";
+	            return false;
+        }
+  }
+</script>
    </body>
 </html>
